@@ -1,0 +1,59 @@
+# Copilot Agent Configuration
+version: "1.0"
+
+# Default settings for all agents
+defaults:
+  model: "gpt-4"
+  temperature: 0.1
+  max_tokens: 4000
+
+# Repository-specific context
+context:
+  repository_type: "home-automation"
+  primary_language: "powershell"
+  documentation_format: "markdown"
+  target_platform: "windows"
+
+# Global instructions that apply to all agents
+global_instructions: |
+  This repository contains home automation scripts and documentation for the MarquezHouse project.
+
+  Key principles:
+  1. Security: All scripts should follow security best practices
+  2. Reliability: Code should be robust and handle errors gracefully
+  3. Documentation: Every script and feature should be well-documented
+  4. Maintainability: Code should be easy to understand and modify
+  5. Testing: Include examples and test scenarios
+
+  File structure:
+  - /src/Computer/Audio/ - Audio system automation scripts
+  - /docs/ - Documentation and guides
+  - /tests/ - Test scripts and validation
+  - /examples/ - Usage examples and templates
+
+# Agent-specific configurations
+agents:
+  - name: "@powershell-expert"
+    trigger_patterns:
+      - "*.ps1"
+      - "powershell"
+      - "script"
+      - "automation"
+      - "scheduled task"
+
+  - name: "@documentation-expert"
+    trigger_patterns:
+      - "*.md"
+      - "readme"
+      - "documentation"
+      - "docs"
+      - "help"
+
+  - name: "@home-automation-expert"
+    trigger_patterns:
+      - "automation"
+      - "smart home"
+      - "audio"
+      - "mute"
+      - "scheduled"
+      - "trigger"

@@ -1,0 +1,52 @@
+{
+    "audioControl": {
+        "businessHours": {
+            "start": 8,
+            "end": 17,
+            "description": "Business hours in 24-hour format (0-23)"
+        },
+        "teamsIntegration": {
+            "enabled": true,
+            "muteShortcut": "Ctrl+Shift+M",
+            "processNames": [
+                "ms-teams",
+                "Teams"
+            ],
+            "description": "Microsoft Teams integration settings"
+        },
+        "systemAudio": {
+            "enabled": true,
+            "muteOnNonBusinessHours": true,
+            "description": "System-wide audio control settings"
+        },
+        "logging": {
+            "enabled": true,
+            "level": "Info",
+            "logPath": "%TEMP%\\TeamsAudioControl.log",
+            "retentionDays": 7,
+            "description": "Logging configuration"
+        },
+        "automation": {
+            "taskName": "TeamsAudioControlTask",
+            "runAtStartup": false,
+            "triggers": [
+                {
+                    "type": "Daily",
+                    "time": "08:00",
+                    "description": "Morning unmute trigger"
+                },
+                {
+                    "type": "Daily",
+                    "time": "17:00",
+                    "description": "Evening mute trigger"
+                }
+            ]
+        }
+    },
+    "metadata": {
+        "version": "2.0",
+        "lastUpdated": "2025-06-27",
+        "author": "Eric Marquez",
+        "description": "Configuration for Teams and system audio control automation"
+    }
+}
